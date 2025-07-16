@@ -24,7 +24,7 @@ const moods = [
 
 // Fixed: Added missing daysOfWeek array
 const daysOfWeek = [
-  "Monday", "Tuesday", "Wednesday", "Thursday", 
+  "Monday", "Tuesday", "Wednesday", "Thursday",
   "Friday", "Saturday", "Sunday"
 ];
 
@@ -248,7 +248,8 @@ const dataAnalyzer = {
     for (let dayData of weekData) { // Loop through each day's data
       moodCounts[dayData.mood] = (moodCounts[dayData.mood] || 0) + 1;  // Count the occurrences of each mood
     }
-    let mostFrequent = "", leastFrequent = "", maxCount = 0, minCount = Infinity;
+    let mostFrequent = "", leastFrequent = "", maxCount = 0, minCount = Infinity; //why is it infinity? Because we want to find the minimum count, and starting with Infinity ensures any mood will be less than this initial value.
+    
     for (let mood in moodCounts) {  // Loop through each mood in the moodCounts object
       if (moodCounts[mood] > maxCount) {  // If the count of the current mood is greater than the current maxCount, update mostFrequent and maxCount
         maxCount = moodCounts[mood];  // Update maxCount
